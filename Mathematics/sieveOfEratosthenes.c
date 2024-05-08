@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <string.h> // memset function
 
+// Complexity: O(N log(log N))
 void sieveOfEratosthenes(int n, int primeList[]) {
   int cnt = 0;
   bool eleminated[n + 1];
