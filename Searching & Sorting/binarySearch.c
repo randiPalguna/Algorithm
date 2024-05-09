@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Complexity: O(log N)
 int binarySearch(int n, int arr[], int target) {
   int left = 0;
   int right = n - 1;
