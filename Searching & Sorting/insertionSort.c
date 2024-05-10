@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Complexity: O(N^2)
 void insertionSort(int n, int arr[]) {
   int pos;
   for (int i = 0; i < n; i++) {
