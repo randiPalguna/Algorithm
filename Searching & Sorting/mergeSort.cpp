@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Complexity: O(N log N)
 void combineMergeSort(vector<int> &arr, int aLeft, int aRight, int bLeft, int bRight) {
   int size = bRight - aLeft + 1;
   vector<int> arrTemp(size);
