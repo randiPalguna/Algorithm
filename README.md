@@ -1,2 +1,2 @@
 # Algorithm
-List of Algorithms in C/C++ Programming Language
+List of Algorithms in C++ Programming Language
