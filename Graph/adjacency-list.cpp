@@ -2,7 +2,6 @@
 
 using namespace std;
 
-// unweighted graph
 struct graph {
   vector<vector<int>> edges;
 
@@ -19,7 +18,24 @@ struct graph {
     }
   }
 
-  void check() {
+  void delEdge(int src, int dst, bool undirected) {
+    for (auto it = edges[src].begin(); it != edges[src].end(); it++) {
+      if (*it == dst) {
+        edges[src].erase(it);
+        break;
+      }
+    }
+    if (undirected) {
+      for (auto it = edges[dst].begin(); it != edges[dst].end(); it++) {
+        if (*it == src) {
+          edges[dst].erase(it);
+          break;
+        }
+      }
+    }
+  }
+
+  void printList() {
     for (int i = 0; i < (int) edges.size(); i++) {
       cout << i << "| ";
       for (int j = 0; j < (int) edges[i].size(); j++) {
@@ -47,7 +63,24 @@ struct graphW {
     }
   }
   
-  void check() {
+  void delEdge(int src, int dst, bool undirected) {
+    for (auto it = edges[src].begin(); it != edges[src].end(); it++) {
+      if (it->first == dst) {
+        edges[src].erase(it);
+        break;
+      }
+    }
+    if (undirected) {
+      for (auto it = edges[dst].begin(); it != edges[dst].end(); it++) {
+        if (it->first == src) {
+          edges[dst].erase(it);
+          break;
+        }
+      }
+    }
+  }
+
+  void printList() {
     for (int i = 0; i < (int) edges.size(); i++) {
       cout << i << "| ";
       for (int j = 0; j < (int) edges[i].size(); j++) {
@@ -59,12 +92,14 @@ struct graphW {
 };
 
 int main() {
-  graphW g;
+  graph g;
   g.init(5);
-  g.addEdge(0, 1, 5, 0);
-  g.addEdge(1, 4, 53, 0);
-  g.addEdge(2, 1, 23, 0);
-  g.addEdge(3, 4, 141, 0);
-  g.check();
+  g.addEdge(0, 1, 0);
+  g.addEdge(1, 4, 0);
+  g.addEdge(2, 1, 0);
+  g.addEdge(3, 4, 0);
+  g.delEdge(3, 4, 0);
+  g.delEdge(0, 1, 0);
+  g.printList();
   return 0;
 }
