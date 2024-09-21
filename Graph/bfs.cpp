@@ -8,7 +8,7 @@ struct graph {
 
   void init(int nodeCnt) {
     nodeCount = nodeCnt;
-    for (int i = 0; i < nodeCount; i++) {
+    for (int i = 0; i <= nodeCount; i++) {  // Adding additional 1 node in case of 1-indexed input
       edges.push_back({});
     }
   }
