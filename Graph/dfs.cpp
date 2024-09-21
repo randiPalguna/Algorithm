@@ -4,7 +4,7 @@ using namespace std;
 
 struct graph {
   int nodeCount;
-  vector<vector<pair<int, int>>> edges;
+  vector<vector<pair<int, int>>> edges; // adjacency list
 
   void init(int nodeCnt) {
     nodeCount = nodeCnt;
@@ -20,33 +20,6 @@ struct graph {
     }
   }
   
-  void delEdge(int src, int dst, bool undirected) {
-    for (auto it = edges[src].begin(); it != edges[src].end(); it++) {
-      if (it->first == dst) {
-        edges[src].erase(it);
-        break;
-      }
-    }
-    if (undirected) {
-      for (auto it = edges[dst].begin(); it != edges[dst].end(); it++) {
-        if (it->first == src) {
-          edges[dst].erase(it);
-          break;
-        }
-      }
-    }
-  }
-
-  void printList() {
-    for (int i = 0; i < (int) edges.size(); i++) {
-      cout << i << "| ";
-      for (int j = 0; j < (int) edges[i].size(); j++) {
-        cout << "(" << edges[i][j].first << " = " << edges[i][j].second << ") ";
-      }
-      cout << '\n';
-    }
-  }
-
   void dfs(int start, int goal) {
     stack<int> nodes;
     vector<bool> visited(nodeCount);
