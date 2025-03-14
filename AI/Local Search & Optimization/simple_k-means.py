@@ -10,6 +10,8 @@ import math
 # data: the data element (coordinate vector space)
 # data_elements: the data elements (d(data-i, centroid-i), ...)
 
+# Iteration is fixed to 4
+
 def euclidean(centroid, data):
   return math.sqrt(pow(abs(centroid[0] - data[0]), 2) + pow(abs(centroid[1] - data[1]), 2)) 
 
@@ -65,3 +67,23 @@ while (it < iterations):
       centroid_elements[i][j] += 1
   print(centroid_elements)
   print()
+
+# Input
+# centroids (number of cluster)
+# centroids row of cluster
+# datas (number of data)
+# datas row of cluster
+  
+# 3
+# 2.0 10.0
+# 7.0 5.0
+# 1.0 2.0
+# 8
+# 2.0 10.0
+# 2.0 5.0
+# 8.0 4.0
+# 5.0 8.0
+# 7.0 5.0
+# 6.0 4.0
+# 1.0 2.0
+# 4.0 9.0
